@@ -14,11 +14,13 @@
       display: flex;
       justify-content: center;
       align-items: center;*/
-       background-color: black;
+   
+     background-color: black;
         margin: 0;
         padding: 0;
-        overflow: hidden;
-        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 100vh;
     }
 
     .container {
@@ -30,12 +32,22 @@
     }
 
     .wrapper {
-    width: 100vw;
+   /*idth: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 20px 0;
+    box-sizing: border-box;
     position: relative;
+
     }
 
     
@@ -173,10 +185,15 @@
     }
    /* FRASE */ 
     .typing-container {
-    position: absolute;
+  /*position: absolute;
     bottom: 30px;
     width: 100%;
     text-align: center;
+    */
+      padding-bottom:10px; /* menos espacio abajo */
+        max-width: 90%;
+        text-align: center;
+        line-height: 1.4;
     }
 
     .typing-text {
@@ -205,6 +222,7 @@
 
     .typing-container {
         padding: 0 10px;
+         padding-bottom:10px; /* menos espacio abajo */
     }
 
     .typing-text {
@@ -297,12 +315,13 @@
 
 </div>
 
-
-  <div class="floating-hearts" id="hearts-container"></div>
-
   <div class="typing-container">
     <span class="typing-text" id="typing"></span>
   </div>
+  
+  <div class="floating-hearts" id="hearts-container"></div>
+
+
 </div>
 
   <script>
@@ -341,3 +360,4 @@
   </script>
 </body>
 </html>
+
