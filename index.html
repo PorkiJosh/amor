@@ -6,14 +6,19 @@
   <title>Corazón de palabras</title>
   <style>
     body {
-      background-color: black;
+    /*background-color: black;
       margin: 0;
       padding: 0;
       overflow: hidden;
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: center;*/
+       background-color: black;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100vh;
     }
 
     .container {
@@ -21,20 +26,21 @@
       width: 300px;
       height: 300px;
       animation: heartbeat 2s infinite;
+      transform: scale(1);
     }
 
+    .wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    }
 
-    @media (max-width: 768px) {
-    .container {
-        transform: scale(0.7);
-    }
-    }
+    
 
-    @media (max-width: 480px) {
-    .container {
-        transform: scale(0.5);
-    }
-    }
+  
     /* Estilos generales */
     p {
     color: red;
@@ -108,27 +114,29 @@
     .vigesima-6 { position: absolute; right: 290px; bottom: 200px; }  /* 25 */
     .vigesima-7 { position: absolute; right: 270px; bottom: 190px; } /* centro */
 
-        /* Animación de latido */
-        @keyframes latiendo {
+    /* Animación de latido */
+     @keyframes latiendo {
         0%, 100% { transform: scale(1); }
         50% { transform: scale(1.2); }
+    }
+
+
+    @media (max-width: 480px) {
+        .wrapper {
+            align-items: flex-start;
         }
 
-    /* Ajustes RESPONSIVE ACTUALIZADOS */
-        @media (max-width: 768px) {
         .container {
-            transform: scale(0.7);
-        }
-        }
-
-        @media (max-width: 480px) {
-        .container {
-            transform: scale(0.5);
-        }
+            transform: scale(0.45);
+            margin-top: 50px;
         }
 
-    max-width: 100%;
-    max-height: 100%;
+        .typing-text {
+            font-size: 1rem;
+            white-space: normal;
+        }
+    }
+
 
     @keyframes heartbeat {
       0%, 100% {
@@ -187,6 +195,36 @@
     }
     }
 
+    @media (max-width: 768px) {
+    .container {
+        left: 50%;
+        transform: translateX(-50%) scale(0.6);
+        position: absolute;
+        margin-top: 60px;
+    }
+
+    .typing-container {
+        padding: 0 10px;
+    }
+
+    .typing-text {
+        font-size: 1.2rem;
+        white-space: normal;
+        word-break: break-word;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .container {
+        transform: translateX(-50%) scale(0.45);
+        margin-top: 80px;
+    }
+
+    .typing-text {
+        font-size: 1rem;
+    }
+    }
+
 
   </style>
 
@@ -194,6 +232,8 @@
 
 </head>
 <body>
+
+<div class="wrapper">
   <div class="container">
  
   
@@ -255,14 +295,15 @@
       <p class="vigesima-6">amor</p>
       <p class="vigesima-7">amor</p>
 
-  </div>
+</div>
+
 
   <div class="floating-hearts" id="hearts-container"></div>
 
   <div class="typing-container">
     <span class="typing-text" id="typing"></span>
   </div>
-
+</div>
 
   <script>
     function createHeart() {
