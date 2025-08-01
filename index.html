@@ -40,7 +40,8 @@
     position: relative;*/
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    /*justify-content: space-between;*/
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
@@ -222,7 +223,7 @@
 
     .typing-container {
         padding: 0 10px;
-         padding-bottom:10px; /* menos espacio abajo */
+        padding-bottom:0px; /* 380 menos espacio abajo -10 px*/
     }
 
     .typing-text {
@@ -241,9 +242,30 @@
     .typing-text {
         font-size: 1rem;
     }
+   /*
+    .contenedor-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;   
+     /* margin-top:  25vh;*/ /* separación desde lo de arriba */    /* opcional, si le das altura al contenedor */
+     /* margin-bottom: 20px; */  /* centrado horizontal + separación 
+      width: 100%;
+    }*/
+
     }
 
+    .contenedor-img {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 100%; /* empuja el contenido muy abajo */
+      margin-top: 0px; /* separación desde el texto */
+    }
 
+    .contenedor-img img {
+      width: 120px; /* ajusta el tamaño como gustes */
+      height: auto;
+      border-radius: 12px; /* opcional: esquinas redondeadas */
+    }
   </style>
 
 
@@ -251,7 +273,9 @@
 </head>
 <body>
 
+
 <div class="wrapper">
+ 
   <div class="container">
  
   
@@ -318,11 +342,18 @@
   <div class="typing-container">
     <span class="typing-text" id="typing"></span>
   </div>
+
+  <div class="contenedor-img">
+    <img src="amor1.png" alt="Foto de amor">
+  </div>
+
+  <audio id="musica" src="musica.mp3" autoplay loop></audio>
   
   <div class="floating-hearts" id="hearts-container"></div>
 
 
 </div>
+
 
   <script>
     function createHeart() {
@@ -352,7 +383,9 @@
 
     type();
 
-
+  window.addEventListener('click', function () {
+      document.getElementById('musica').play();
+    }, { once: true });
 
 
 
